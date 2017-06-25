@@ -70,9 +70,7 @@ public class QuizActivity extends AppCompatActivity {
         });
         */
         //lambda版本
-        mTrueButton.setOnClickListener((v) ->
-            Toast.makeText(QuizActivity.this, "Incorrect!", Toast.LENGTH_SHORT).show()
-        );
+        mTrueButton.setOnClickListener((v) -> checkAnswer(true));
 
         mFalseButton = (Button)findViewById(R.id.false_button);
         /*
@@ -84,9 +82,7 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
         */
-        mFalseButton.setOnClickListener((v) ->
-                Toast.makeText(QuizActivity.this, "Correct!", Toast.LENGTH_SHORT).show()
-        );
+        mFalseButton.setOnClickListener((v) -> checkAnswer(false));
 
         mNextButton = (Button)findViewById(R.id.next_button);
 

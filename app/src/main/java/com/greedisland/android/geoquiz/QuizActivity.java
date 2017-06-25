@@ -70,7 +70,7 @@ public class QuizActivity extends AppCompatActivity {
         });
         */
         //lambda版本
-        mTrueButton.setOnClickListener((v) -> checkAnswer(true));
+        mTrueButton.setOnClickListener(v -> checkAnswer(true));
 
         mFalseButton = (Button)findViewById(R.id.false_button);
         /*
@@ -82,7 +82,7 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
         */
-        mFalseButton.setOnClickListener((v) -> checkAnswer(false));
+        mFalseButton.setOnClickListener(v -> checkAnswer(false));
 
         mNextButton = (Button)findViewById(R.id.next_button);
 

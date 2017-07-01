@@ -36,7 +36,6 @@ public class QuizActivity extends AppCompatActivity {
 
     private void checkAnswer(boolean userPressedTrue){
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
-
         int messageResId = 0;
 
         if(userPressedTrue == answerIsTrue){
@@ -55,75 +54,51 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
-        //int question = mQuestionBank[mCurrentIndex].getQuestion();
-        //mQuestionTextView.setText(question);
 
         mTrueButton = (Button)findViewById(R.id.true_button);
-        /*
-        //非lambda版本
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT).show();
+                checkAnswer(true);
             }
         });
-        */
-        //lambda版本
-        mTrueButton.setOnClickListener(v -> checkAnswer(true));
+        //mTrueButton.setOnClickListener(v -> checkAnswer(true));
 
         mFalseButton = (Button)findViewById(R.id.false_button);
-        /*
-        //非lambda版本
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizActivity.this, R.string.correct_toast, Toast.LENGTH_SHORT).show();
+                checkAnswer(false);
             }
         });
-        */
-        mFalseButton.setOnClickListener(v -> checkAnswer(false));
+        //mFalseButton.setOnClickListener(v -> checkAnswer(false));
 
         mNextButton = (Button)findViewById(R.id.next_button);
-
-        /*
-        //非lambda版本
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
-                //int question = mQuestionBank[mCurrentIndex].getQuestion();
-                //mQuestionTextView.setText(question);
                 updateQuestion();
             }
         });
-        */
-
-        //lambda版本
+        /*
         mNextButton.setOnClickListener((v) -> {
             mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
-            //int question = mQuestionBank[mCurrentIndex].getQuestion();
-            //mQuestionTextView.setText(question);
-            updateQuestion();}
-        );
+            updateQuestion();
+        });
+        */
+
+        updateQuestion();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(view -> {
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
-        });
-        /*
-        //非lambda版本
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        */
+        fab.setOnClickListener(view ->
+            Snackbar.make(view,
+                          "Replace with your own action",
+                           Snackbar.LENGTH_LONG).setAction("Action", null).show()
+        );
     }
 
     @Override

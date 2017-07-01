@@ -17,16 +17,9 @@
             android:id="@+id/question_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:padding="24dp"
     />
-            <!--
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:padding="36dp"
-            android:text="@string/question_text"
-            删除android:text属性，无需硬编码
-            -->
 
     <LinearLayout
             android:layout_width="wrap_content"
@@ -54,6 +47,7 @@
             android:id="@+id/next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="@string/next_button"
     ></Button>
 

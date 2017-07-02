@@ -31,6 +31,10 @@ public class QuizActivity extends AppCompatActivity {
     private int mPreviousIndex = 0;
     private int mCurrentIndex = 0;
 
+    private void previousQuestion(){
+        mQuestionTextView.setText(mPreviousIndex);
+    }
+
     private void updateQuestion(){
         int question = mQuestionBank[mCurrentIndex].getQuestion();
         mQuestionTextView.setText(question);
@@ -81,7 +85,7 @@ public class QuizActivity extends AppCompatActivity {
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //do nothing yet
+                previousQuestion();
             }
         });
 

@@ -16,6 +16,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
+    private Button mPreviousButton;
     private Button mNextButton;
     private TextView mQuestionTextView;
 
@@ -27,6 +28,7 @@ public class QuizActivity extends AppCompatActivity {
             new TrueFalse(R.string.question_asia, true)
     };
 
+    private int mPreviousIndex = 0;
     private int mCurrentIndex = 0;
 
     private void updateQuestion(){

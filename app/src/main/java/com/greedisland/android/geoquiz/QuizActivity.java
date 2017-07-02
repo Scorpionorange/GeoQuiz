@@ -28,11 +28,11 @@ public class QuizActivity extends AppCompatActivity {
             new TrueFalse(R.string.question_asia, true)
     };
 
-    private int mPreviousIndex = 0;
+    private int mPreviousIndex;
     private int mCurrentIndex = 0;
 
-    private void previousQuestion(){
-        mQuestionTextView.setText(mPreviousIndex);
+    private void previousQuestion(int inputIndex){
+        mQuestionTextView.setText(inputIndex);
     }
 
     private void updateQuestion(){
@@ -85,7 +85,7 @@ public class QuizActivity extends AppCompatActivity {
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                previousQuestion();
+                previousQuestion(mPreviousIndex);
             }
         });
 

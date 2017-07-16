@@ -28,16 +28,21 @@ public class QuizActivity extends AppCompatActivity {
             new TrueFalse(R.string.question_asia, true)
     };
 
-    private int mPreviousIndex;
     private int mCurrentIndex = 0;
 
-    private void previousQuestion(int inputIndex){
-        mQuestionTextView.setText(inputIndex);
+    private void previousQuestion(){
+        //当前题目序号减一，需要考虑数组前端越界，故当序号小于零时，定义为最后一个；
+        mCurrentIndex = mCurrentIndex - 1;
+        if(mCurrentIndex < 0){
+            mCurrentIndex = mQuestionBank.length - 1;
+        }
+        mQuestionTextView.setText(mQuestionBank[mCurrentIndex].getQuestion());
     }
 
     private void updateQuestion(){
-        int question = mQuestionBank[mCurrentIndex].getQuestion();
-        mQuestionTextView.setText(question);
+        //当前题目序号加一，需要考虑数据的末端越界，故取模运算，当序号等于数据长度时则为零，便重头再来；
+        mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+        mQuestionTextView.setText(mQuestionBank[mCurrentIndex].getQuestion());
     }
 
     private void checkAnswer(boolean userPressedTrue){
@@ -79,13 +84,11 @@ public class QuizActivity extends AppCompatActivity {
         });
         //mFalseButton.setOnClickListener(v -> checkAnswer(false));
 
-        mPreviousIndex = mCurrentIndex;
-
         mPreviousButton = (Button)findViewById(R.id.previous_button);
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                previousQuestion(mPreviousIndex);
+                previousQuestion();
             }
         });
 
@@ -93,16 +96,9 @@ public class QuizActivity extends AppCompatActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
                 updateQuestion();
             }
         });
-        /*
-        mNextButton.setOnClickListener((v) -> {
-            mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
-            updateQuestion();
-        });
-        */
 
         updateQuestion();
 

@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +30,8 @@ public class QuizActivity extends AppCompatActivity {
     };
 
     private int mCurrentIndex = 0;
+
+    private static final String TAG = "QuizActivity";
 
     private void previousQuestion(){
         //当前题目序号减一，需要考虑数组前端越界，故当序号小于零时，定义为最后一个；
@@ -62,6 +65,7 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate(Bundle) called");
         setContentView(R.layout.activity_quiz);
 
         mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
@@ -100,7 +104,9 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+        //迷之设定：题目序号初始为零，应该显示Question One，但是显示了Two，所以手动设置一次Next→Previous，纠结；
         updateQuestion();
+        previousQuestion();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -113,13 +119,36 @@ public class QuizActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        /*
-        fab.setOnClickListener(view ->
-            Snackbar.make(view,
-                          "Replace with your own action",
-                           Snackbar.LENGTH_LONG).setAction("Action", null).show()
-        );
-        */
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        Log.d(TAG, "onStart() called");
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        Log.d(TAG, "onPause() called");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.d(TAG, "onResume() called");
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        Log.d(TAG, "onStop() called");
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d(TAG, "onDestroy() called");
     }
 
     @Override

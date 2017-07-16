@@ -11,10 +11,10 @@
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
     <string name="menu_setting">Settings</string>
-    <string name="question_oceans">Question One:The Pacific Ocean is large than the Atlantic Ocean.</string>
-    <string name="question_mideast">Question Two:The Suez canal connects the Red Sea and the Indian Ocean.</string>
-    <string name="question_africa">Question Three:The source of the Nile River is in Egypt.</string>
-    <string name="question_americas">Question Four:The Amazon River is the longest river in the Americas.</string>
-    <string name="question_asia">Question Five:Lake Baikal is the world\'s oldest and deepest freshwater lake.</string>
+    <string name="question_oceans">Question One: The Pacific Ocean is large than the Atlantic Ocean.</string>
+    <string name="question_mideast">Question Two: The Suez canal connects the Red Sea and the Indian Ocean.</string>
+    <string name="question_africa">Question Three: The source of the Nile River is in Egypt.</string>
+    <string name="question_americas">Question Four: The Amazon River is the longest river in the Americas.</string>
+    <string name="question_asia">Question Five: Lake Baikal is the world\'s oldest and deepest freshwater lake.</string>
     <string name="action_settings">doing nothing</string>
 </resources>

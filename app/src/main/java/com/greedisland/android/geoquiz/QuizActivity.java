@@ -32,6 +32,7 @@ public class QuizActivity extends AppCompatActivity {
     private int mCurrentIndex = 0;
 
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
 
     private void previousQuestion(){
         //当前题目序号减一，需要考虑数组前端越界，故当序号小于零时，定义为最后一个；
@@ -107,6 +108,13 @@ public class QuizActivity extends AppCompatActivity {
         //迷之设定：题目序号初始为零，应该显示Question One，但是显示了Two，所以手动设置一次Next→Previous，纠结；
         updateQuestion();
         previousQuestion();
+
+        @Override
+        public void onSaveInstanceState(Bundle savedInstanceState){
+            super.onSaveInstanceState(savedInstanceState);
+            Log.i(TAG, "onSaveInstanceState");
+            savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

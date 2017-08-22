@@ -105,16 +105,13 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+        if(savedInstanceState != null){
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
+
         //迷之设定：题目序号初始为零，应该显示Question One，但是显示了Two，所以手动设置一次Next→Previous，纠结；
         updateQuestion();
         previousQuestion();
-
-        @Override
-        public void onSaveInstanceState(Bundle savedInstanceState){
-            super.onSaveInstanceState(savedInstanceState);
-            Log.i(TAG, "onSaveInstanceState");
-            savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
-        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -127,6 +124,13 @@ public class QuizActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
     }
 
     @Override

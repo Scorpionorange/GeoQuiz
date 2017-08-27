@@ -44,6 +44,8 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void updateQuestion(){
+        //如果AndroidRuntime异常，Log.d(string, string, Throwable())方法会记录并输出整个栈跟踪信息;
+        //Log.d(TAG, "Updating question text for question #" + mCurrentIndex, new Exception());
         //当前题目序号加一，需要考虑数据的末端越界，故取模运算，当序号等于数据长度时则为零，便重头再来；
         mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
         mQuestionTextView.setText(mQuestionBank[mCurrentIndex].getQuestion());

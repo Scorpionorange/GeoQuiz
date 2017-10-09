@@ -27,6 +27,9 @@ public class CheatActivity extends Activity {
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_cheat);
 
+        // Answer will not be shown until the user presses the button
+        setAnswerShownResult(false);
+
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
 
         mAnswerTextView = (TextView)findViewById(R.id.answerTextView);
@@ -40,6 +43,7 @@ public class CheatActivity extends Activity {
                 } else {
                     mAnswerTextView.setText(R.string.false_button);
                 }
+                setAnswerShownResult(true);
             }
         });
     }

@@ -32,7 +32,7 @@ public class CheatActivity extends Activity {
 
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
 
-        mAnswerTextView = (TextView)findViewById(R.id.answerTextView);
+        mAnswerTextView = (TextView)findViewById(R.id.answer_Text_View);
 
         mShowAnswer = (Button)findViewById(R.id.showAnswerButton);
         mShowAnswer.setOnClickListener(new View.OnClickListener() {

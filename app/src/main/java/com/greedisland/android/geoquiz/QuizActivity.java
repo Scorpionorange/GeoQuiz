@@ -67,7 +67,7 @@ public class QuizActivity extends AppCompatActivity {
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Do nothing yet
+                //TODO:do nothing yet
             }
         });
 
@@ -143,6 +143,10 @@ public class QuizActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy() called");
+    }
+
+    private void previousQuestion(){
+        //TODO:do nothing yet
     }
 
     private void updateQuestion() {
